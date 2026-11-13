@@ -1,0 +1,31 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../models/monument_model.dart';
+
+class MonumentRepository {
+  static const _images = [
+    'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200&auto=format&fit=crop',
+  ];
+
+  static final List<MonumentModel> sampleMonuments = [
+    MonumentModel(id: 'boudhanath', name: 'Boudhanath Stupa', nepaliName: 'बौद्धनाथ स्तूप', zone: 'Boudha', description: "Nepal's largest stupa, a center of Tibetan Buddhism since the 14th century.", history: 'Boudhanath stands on an ancient trade route between Nepal and Tibet.', architecturalStyle: 'Buddhist stupa', builtCentury: '14th century', imageUrl: _images[0], latitude: 27.7215, longitude: 85.3620, distanceKm: 2.4),
+    MonumentModel(id: 'swayambhunath', name: 'Swayambhunath', nepaliName: 'स्वयम्भूनाथ', zone: 'Swayambhu', description: 'A hilltop Buddhist complex where Kathmandu Valley traditions meet daily pilgrimage.', history: 'The hill is one of the oldest religious sites in the valley.', architecturalStyle: 'Buddhist stupa', builtCentury: '5th century', imageUrl: _images[1], latitude: 27.7149, longitude: 85.2904, distanceKm: 4.1),
+    MonumentModel(id: 'kathmandu_durbar', name: 'Kathmandu Durbar Square', nepaliName: 'काठमाडौं दरबार क्षेत्र', zone: 'Basantapur', description: 'A royal square of palaces, courtyards, temples, and living Newar ritual traditions.', history: 'The square was the seat of Malla and Shah rulers in Kathmandu.', architecturalStyle: 'Newar palace architecture', builtCentury: '12th century', imageUrl: _images[2], latitude: 27.7042, longitude: 85.3072, distanceKm: 1.8),
+    MonumentModel(id: 'patan_durbar', name: 'Patan Durbar Square', nepaliName: 'पाटन दरबार क्षेत्र', zone: 'Lalitpur', description: 'A dense ensemble of courtyards and temples known for precise Newar metalwork.', history: 'Patan developed as a major center of Buddhist and Hindu art.', architecturalStyle: 'Newar palace architecture', builtCentury: '16th century', imageUrl: _images[3], latitude: 27.6744, longitude: 85.3249, distanceKm: 5.2),
+    MonumentModel(id: 'bhaktapur_durbar', name: 'Bhaktapur Durbar Square', nepaliName: 'भक्तपुर दरबार क्षेत्र', zone: 'Bhaktapur Durbar', description: 'A historic royal square framed by brick façades, courtyards, and carved timber.', history: 'Bhaktapur was the capital of the Malla kingdom until the eighteenth century.', architecturalStyle: 'Newar palace architecture', builtCentury: '15th century', imageUrl: _images[3], latitude: 27.6713, longitude: 85.4285, distanceKm: 13.5),
+    MonumentModel(id: 'pashupatinath', name: 'Pashupatinath Temple', nepaliName: 'पशुपतिनाथ मन्दिर', zone: 'Deopatan', description: 'A sacred Shiva temple complex on the banks of the Bagmati River.', history: 'The present pagoda structure dates from the seventeenth century.', architecturalStyle: 'Pagoda temple', builtCentury: '17th century', imageUrl: _images[2], latitude: 27.7104, longitude: 85.3487, distanceKm: 3.5),
+    MonumentModel(id: 'changu_narayan', name: 'Changu Narayan Temple', nepaliName: 'चाँगुनारायण', zone: 'Bhaktapur', description: 'A hilltop temple with one of Nepal’s oldest surviving stone inscriptions.', history: 'The inscription dates to 464 CE during the reign of King Manadeva.', architecturalStyle: 'Double-roofed pagoda', builtCentury: '5th century', imageUrl: _images[1], latitude: 27.7161, longitude: 85.4278, distanceKm: 15.0),
+    MonumentModel(id: 'kirtipur', name: 'Kirtipur Old Town', nepaliName: 'कीर्तिपुर', zone: 'Kirtipur', description: 'A historic hill town of brick lanes, shrines, and living Newar neighbourhoods.', history: 'Kirtipur preserves layers of settlement history above the valley floor.', architecturalStyle: 'Newar urban fabric', builtCentury: '17th century', imageUrl: _images[2], latitude: 27.6781, longitude: 85.2778, distanceKm: 6.4),
+    MonumentModel(id: 'rani_pokhari', name: 'Rani Pokhari', nepaliName: 'रानी पोखरी', zone: 'Kathmandu', description: 'A historic pond and memorial at the centre of Kathmandu.', history: 'King Pratap Malla built the pond in the seventeenth century.', architecturalStyle: 'Water monument', builtCentury: '17th century', imageUrl: _images[3], latitude: 27.7070, longitude: 85.3157, distanceKm: 1.2),
+    MonumentModel(id: 'kasthamandap', name: 'Kasthamandap', nepaliName: 'काष्ठमण्डप', zone: 'Maru, Kathmandu', description: 'A timber pavilion that gave Kathmandu its name and anchors Maru courtyard.', history: 'The pavilion was rebuilt after the 2015 earthquake using traditional methods.', architecturalStyle: 'Timber pavilion', builtCentury: '12th century', imageUrl: _images[2], latitude: 27.7038, longitude: 85.3068, distanceKm: 1.9),
+    MonumentModel(id: 'garden_of_dreams', name: 'Garden of Dreams', nepaliName: 'स्वप्न बगैंचा', zone: 'Kaiser Mahal', description: 'A neoclassical garden with pavilions, lawns, and quiet city refuge.', history: 'The garden was created in the early twentieth century beside Kaiser Mahal.', architecturalStyle: 'Neoclassical garden', builtCentury: '20th century', imageUrl: _images[3], latitude: 27.7133, longitude: 85.3179, distanceKm: 1.4),
+    MonumentModel(id: 'dharahara', name: 'Dharahara', nepaliName: 'धरहरा', zone: 'Sundhara', description: 'A rebuilt landmark tower marking Kathmandu’s historic civic centre.', history: 'The tower has been rebuilt after successive earthquakes and remains a city landmark.', architecturalStyle: 'Historic tower', builtCentury: '19th century', imageUrl: _images[2], latitude: 27.7000, longitude: 85.3120, distanceKm: 1.6),
+  ];
+}
+
+final monumentRepositoryProvider = Provider<List<MonumentModel>>((ref) => MonumentRepository.sampleMonuments);
+/// Mock RAG knowledge-base records used by Explore until the real service is connected.
+final ragKnowledgeBaseProvider = Provider<List<MonumentModel>>((ref) => ref.watch(monumentRepositoryProvider));
+final featuredMonumentProvider = Provider<MonumentModel>((ref) => MonumentRepository.sampleMonuments.first);

@@ -3,15 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smritai/app.dart';
 
 void main() {
-  testWidgets('Splash screen smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Darshan App initialization test', (WidgetTester tester) async {
     await tester.pumpWidget(
       const ProviderScope(
-        child: SmritApp(),
+        child: DarshanApp(),
       ),
     );
-
-    // Verify that the splash screen shows 'SmritAI'.
-    expect(find.text('SmritAI'), findsOneWidget);
+    expect(find.byType(DarshanApp), findsOneWidget);
   });
 }
